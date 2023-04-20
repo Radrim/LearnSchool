@@ -1,0 +1,28 @@
+﻿<Page x:Class="LearnSchool.Pages.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LearnSchool.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AuthPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Background="#FFE7FABF" Grid.Row="0">
+            <Image Source="\Assets\school_logo.png" Margin="20,5,0,0"></Image>
+            <Label Content="Школа языков Learn" VerticalAlignment="Center" FontSize="24" Margin="10,0,0,0"></Label>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
+            <Button x:Name="btnSign" Content="Войти" Click="btnSignClick"></Button>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Button x:Name="btnCodeSign" Content="Войти с кодом" Click="btnCodeSignClick"></Button>
+                <TextBox x:Name="tbCode" Text=" " Width="80" Margin="10,0,0,0"></TextBox>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

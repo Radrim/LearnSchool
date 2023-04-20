@@ -1,0 +1,58 @@
+﻿<Page x:Class="LearnSchool.Pages.ServiceListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LearnSchool.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ServiceListPage" Background="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Background="#FFE7FABF">
+            <Image Source="\Assets\school_logo.png" Margin="20,5,0,0"></Image>
+            <Label Content="Школа языков Learn" VerticalAlignment="Center" FontSize="24" Margin="10,0,0,0"></Label>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <ScrollViewer>
+            <StackPanel Grid.Row="1" Margin="30" Grid.Column="0">
+                <ListView x:Name="lvService" d:ItemsSource="{d:SampleData ItemCount=5}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{Binding MainImagePath}" Width="120"></Image>
+                                <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                                    <TextBlock Text="{Binding Title}"></TextBlock>
+                                    <TextBlock>
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat="{}{0:F0} рублей за {1}">
+                                                <Binding Path="Cost"></Binding>
+                                                <Binding Path="DurationInSeconds"></Binding>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+
+                                    <TextBlock Text="{Binding Discount}"></TextBlock>
+                                    <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                                        <Button Content="Редактировать" Tag="{Binding ID}" Click="ButtonEditClick" Margin="0,0,10,0"></Button>
+                                        <Button Content="Удалить"></Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>
